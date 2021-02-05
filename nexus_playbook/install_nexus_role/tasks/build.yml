@@ -1,0 +1,13 @@
+---
+#- name: Install pip
+#  apt: name=python-pip state=present
+#- name: install docker-py
+#  pip: name=docker-py
+- name: Running the Nexus container
+  docker_container:
+            name: nexus
+            image: kotinephew/nexus:latest
+            ports:
+                    - 9999:8081
+- name: Running the script to create Repositories, Users and Roles
+  shell: docker exec -it nexus /bin/sh /usr/share/script/provision.sh

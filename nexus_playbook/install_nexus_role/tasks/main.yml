@@ -1,0 +1,3 @@
+---
+# tasks file for /etc/ansible/roles/installjenkins
+- import_tasks: build.yml
